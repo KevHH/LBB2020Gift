@@ -7,4 +7,7 @@ Documentation for setting up LCD display 1602 (controller HD44780) with Raspberr
 - 5V to 3.3V logic level converter from https://www.amazon.co.uk/gp/product/B07PY3CRFM/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
 
 ## Tutorial
-Source: https://tutorials-raspberrypi.com/control-a-raspberry-pi-hd44780-lcd-display-via-i2c/
+Modified from: https://tutorials-raspberrypi.com/control-a-raspberry-pi-hd44780-lcd-display-via-i2c/
+
+![alt text](_data/raspberry_pi_GPIO.png)
+
