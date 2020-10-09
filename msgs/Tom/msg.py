@@ -26,12 +26,13 @@ def get_msg_list():
     ## CUSTOMISATION START #
     ########################
     # you can create messages like this
-    msg_list.append( Message("Hey,", " Adam and Elena,", 1) )
-    msg_list.append( Message("It's been a", "  great time :)", 1) )
-
-    # or you can create "animations" like this
-    for i in range(13):
-        msg_list.append(Message( " " * i + "^_^", "     Kevin", 0.1)) # iteratively add messages with number of spaces before :) = i
+    binary_thanks = '01010100 01001000 01000001 01001110 01001011 01010011 00100001'
+    for i in range(47):
+        msg_list.append( Message("Did you know....", binary_thanks[i:i+16], 0.1))
+    msg_list.append( Message("...is binary for", "                ", 1.5) )
+    msg_list.append( Message("...is binary for", "     THANKS!    ", 1.5) )
+    msg_list.append( Message("from,           ", "", 1.5) )
+    msg_list.append( Message("from,", "     Tom        ", 1) )
     ########################
     ## CUSTOMISATION END #
     ########################
