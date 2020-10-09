@@ -15,8 +15,9 @@ Documentation for setting up LCD display 1602 (controller HD44780) with Raspberr
 - LCD Display 1602 with i2C backpack from https://www.amazon.co.uk/gp/product/B07PG1MTJ9/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1
 - 5V to 3.3V logic level converter from https://www.amazon.co.uk/gp/product/B07PY3CRFM/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1
 
-## Raspberry Pi Setup (TBC)
-Modified from: https://www.raspberrypi-spy.co.uk/2015/05/using-an-i2c-enabled-lcd-screen-with-the-raspberry-pi/
+## Raspberry Pi Setup
+Modified from: https://tutorials-raspberrypi.com/control-a-raspberry-pi-hd44780-lcd-display-via-i2c/ and https://www.raspberrypi-spy.co.uk/2015/05/using-an-i2c-enabled-lcd-screen-with-the-raspberry-pi/
 
 ![alt text](_data/raspberry_pi_GPIO.png)
+
 
