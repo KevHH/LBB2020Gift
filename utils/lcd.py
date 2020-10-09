@@ -1,5 +1,6 @@
 from os import system, name 
 import time
+from .libs import lcd_i2c 
 
 class Message:
     def __init__(self, line_one, line_two, duration):
@@ -27,7 +28,7 @@ class Message:
 
 def display_test(msg_list):
     '''
-        Take in a list of objects of Message class, and display them in order
+        Take in a list of objects of Message class, and display them in terminal
     '''
     # sanitisation
     for i, msg in enumerate(msg_list):
@@ -42,6 +43,27 @@ def display_test(msg_list):
         print(msg.line_two)
         time.sleep(msg.duration)
         clear()
+
+def display_lcd_init():
+    '''
+        Initialise lcd screen
+    '''
+    lcd_i2c.lcd_init()
+
+def display_lcd(msg_list):
+    '''
+        Take in a list of objects of Message class, and display them on LCD screen
+    '''
+    # sanitisation
+    for i, msg in enumerate(msg_list):
+        if not isinstance(msg, Message):
+            raise ValueError("Item " + str(i) + " in the list is not a Message object")
+
+    for msg in msg_list:
+        lcd_i2c.lcd_string(msg.line_one, lcd_i2c.LCD_LINE_1)
+        lcd_i2c.lcd_string(msg.line_two, lcd_i2c.LCD_LINE_2)
+        time.sleep(msg.duration)
+
 
 ##########################
 # Auxiliary functions

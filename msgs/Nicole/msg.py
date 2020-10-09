@@ -26,8 +26,8 @@ def get_msg_list():
     ## CUSTOMISATION START #
     ########################
     # you can create messages like this
-    msg_list.append( Message("Hi", " Adam & Elena,", 0.5) )
-    msg_list.append( Message("Thanks for the", "amazing bootcamp", 0.5) )
+    msg_list.append( Message("Hi", " Adam & Elena,", 1) )
+    msg_list.append( Message("Thanks for the", "amazing bootcamp", 1) )
 
     # or you can create "animations" like this
     for i in range(9):
