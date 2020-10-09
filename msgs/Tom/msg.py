@@ -26,8 +26,9 @@ def get_msg_list():
     ## CUSTOMISATION START #
     ########################
     # you can create messages like this
-    binary_thanks = '01010100 01001000 01000001 01001110 01001011 01010011 00100001'
-    for i in range(47):
+    binary_thanks = '                01010100 01001000 01000001 01001110 01001011 01010011 00100001                '
+    msg_list.append( Message("Did you know....", "", 1))
+    for i in range(79):
         msg_list.append( Message("Did you know....", binary_thanks[i:i+16], 0.1))
     msg_list.append( Message("...is binary for", "                ", 1.5) )
     msg_list.append( Message("...is binary for", "     THANKS!    ", 1.5) )
