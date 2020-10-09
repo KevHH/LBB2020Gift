@@ -9,6 +9,17 @@ Documentation for setting up LCD display 1602 (controller HD44780) with Raspberr
 4. Feel free to get creative! You may use animations in the way shown in the sample, or use symbols (ASCII 0 - 255) to draw pictures.   
 5. When you are done, run `git pull` first to ensure you have the most up-to-date repo, and do `git push` to commit your code. 
 
+NEW NOTE: It is found that the screen only supports the following character set (read them in binary, e.g. 0 is 00110000 which is 48). Numbers and English letters are fine, but for some other characters, their ASCII code is not consistent with the following set. E.g. if you put backlash `\\\\` in your message, for which the ASCII code is 92, i.e. 01011100 in binary, it actually corresponds to `¥`, the yen/yuan symbol. It turns out that backlash `\\\\` is not supported. If you want to use a closely related symbol, e.g. the one at 10100100, which is 164 in decimal, you want to type the python code `chr(164)` to have the character.
+
+HD44780 character set (the convention the LCD screen uses):
+![alt text](_data/hd44780-i2c-display_Steckplatine-600x365.png)
+
+Binary to decimal (and decimal to binary) converter:
+https://www.binaryhexconverter.com/binary-to-decimal-converter
+
+ASCII table (the convention our computer uses):
+http://www.asciitable.com/
+
 ## General instructions on setting up LCD 1602 with Raspberry Pi (for those interested)
 ### Materials
 - Raspberry Pi 4
@@ -50,6 +61,13 @@ Modified from: https://tutorials-raspberrypi.com/control-a-raspberry-pi-hd44780-
     If you see a number other than 27, make sure you change it in line 38 `I2C_ADDR  = 0x27 # I2C device address` in `libs/lcd_i2c.py`.
 
 ### Software test
-3. Run `sudo python3 lib/lcd_i2c.py` and check that you can see the following in your screen. You may need to adjust the potentiometer on the i2C backpack behind the screen to improve the contrast.
+1. Run `sudo python3 lib/lcd_i2c.py` and check that you can see the following in your screen. You may need to adjust the potentiometer on the i2C backpack behind the screen to improve the contrast.
 
 ![alt text](_data/hd44780-i2c-display_Steckplatine-600x365.png)
+
+### Run your code on boot
+1. Follow the instructions here https://www.dexterindustries.com/howto/auto-run-python-programs-on-the-raspberry-pi/ EXCEPT that you should do `sudo cron -e` instead of `cron -e` so that your code can be executed on boot without requiring root permissions.
+
+## Custom characters
+This is for the brave! I didn't have time to do it. It seems much easier to configure with Arduino rather than Raspberry Pi.
+forums.adafruit.com/viewtopic.php?f=22&t=107069

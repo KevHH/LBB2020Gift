@@ -8,6 +8,7 @@
 import sys
 sys.path.append("../../")
 from utils.lcd import Message, display_test
+import numpy as np
 
 ## DO NOT CHANGE THE NAME OF THIS FUNCTION. This will be imported to the main code
 def get_msg_list():
@@ -25,13 +26,21 @@ def get_msg_list():
     ########################
     ## CUSTOMISATION START #
     ########################
-    # you can create messages like this
-    msg_list.append( Message("Hey,", " Adam and Elena,", 1) )
-    msg_list.append( Message("It's been a", "  great time :)", 1) )
 
-    # or you can create "animations" like this
-    for i in range(13):
-        msg_list.append(Message( " " * i + "^_^", "     Kevin", 0.1)) # iteratively add messages with number of spaces before ^_^ = i
+    for lines in [("THANK YOU", "ADAM AND ELENA"), ("FOR ALL THE HARD", "WORK PREPARING"), ("THIS AMAZING", "BOOTCAMP!")]:
+        msg_line_one = chr(208) * 16 + lines[0] + chr(208) * (16 + np.max( [0, len(lines[1]) - len(lines[0])] ))
+        msg_line_two = chr(208) * 16 + lines[1] + chr(208) * (16 + np.max( [0, len(lines[0]) - len(lines[1])] ))
+
+        for i in range(16):
+            msg_list.append(Message(msg_line_one[i:(i+16)], msg_line_two[i:(i+16)], 0.05))
+            
+        msg_list.append(Message(msg_line_one[16:(16+16)], msg_line_two[16:(16+16)], 1))
+        
+        for i in range(17,len(msg_line_one) - 16):
+            msg_list.append(Message(msg_line_one[i:(i+16)], msg_line_two[i:(i+16)], 0.05))
+
+    msg_list.append(Message("", "         - Kevin", 1))
+
     ########################
     ## CUSTOMISATION END #
     ########################
