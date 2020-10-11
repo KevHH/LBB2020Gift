@@ -31,7 +31,7 @@ def get_msg_list():
 
 
     # or you can create "animations" like this
-    for i in range(13):
+    for i in range(9):
         msg_list.append(Message( " " * i + "(*^_^*)", "     Shanice", 0.1)) # iteratively add messages with number of spaces before ^_^ = i
     ########################
     ## CUSTOMISATION END #
