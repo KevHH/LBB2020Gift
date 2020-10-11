@@ -27,12 +27,12 @@ def get_msg_list():
     ########################
     # you can create messages like this
     msg_list.append( Message("Hey,", " Adam and Elena,", 1) )
-    msg_list.append( Message("Bootcamp", "was amazing :)", 1) )
-    msg_list.append( Message("I learned", "so much!", 1) )
+    msg_list.append( Message("Bootcamp", " was amazing :)", 1) )
+    msg_list.append( Message("I learned", " a lot!", 1) )
 
     # or you can create "animations" like this
     for i in range(13):
-        msg_list.append(Message( " " * i + "*_*", "    Marta", 0.1)) # iteratively add messages with number of spaces before ^_^ = i
+        msg_list.append(Message( " " * i + "*_*", "     Marta", 0.1)) # iteratively add messages with number of spaces before ^_^ = i
     ########################
     ## CUSTOMISATION END #
     ########################
