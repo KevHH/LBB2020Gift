@@ -27,19 +27,21 @@ while True:
                     Message("thank-you gift", "from LBBers 2020", 1) ,
                     Message("Enjoy :)", "", 3)] )
 
+    # curtain open
+    display_lcd( [Message("o" * (16-i), " " * i + "o" * (16-i), 0.01) for i in range(16)])
+
     for msg_list in all_msgs:
-        # start message
-        display_lcd( [Message("o" * (16-i), " " * i + "o" * (16-i), 0.01) for i in range(16)])
         
         # actual message
         display_lcd(msg_list)
         
-        # end message
-        display_lcd( [Message("o" * i, " " * (16-i) + "o" * i, 0.01) for i in range(16)])
 
         # pause
         display_lcd( [Message("", "", 2)])
 
+    # curtain close
+    display_lcd( [Message("o" * i, " " * (16-i) + "o" * i, 0.01) for i in range(16)])
+    
     ## end
     display_lcd(   [Message("That's all!", "", 2) ,
                     Message("By LBBers", "     12 Oct 2020", 10)] )
