@@ -41,13 +41,13 @@ Modified from: https://tutorials-raspberrypi.com/control-a-raspberry-pi-hd44780-
  - install the tools by `sudo apt-get install python-smbus i2c-tools`
  - enable the interface by running `sudo raspi-config`, selecting `Interfacing Options`, highlighting `I2C` option and activating `<Select>`. Reboot your pi.
  - add the entries below to the modules file by `sudo nano /etc/modules`:
-    '''
+    ```
         i2c-bcm2708
         i2c-dev
-    '''
+    ```
  - check whether i2C is enabled by running `lsmod | grep i2c_` and seeing whether `i2c_bcm2708` is running
  - check whether your hardware is connected by running `sudo i2cdetect -y 1`. You will see something like this
-    '''
+    ```
             0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
         00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
         10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -57,13 +57,13 @@ Modified from: https://tutorials-raspberrypi.com/control-a-raspberry-pi-hd44780-
         50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
         60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
         70: -- -- -- -- -- -- -- --            
-    '''
+    ```
     If you see a number other than 27, make sure you change it in line 38 `I2C_ADDR  = 0x27 # I2C device address` in `libs/lcd_i2c.py`.
 
 ### Software test
 1. Run `sudo python3 lib/lcd_i2c.py` and check that you can see the following in your screen. You may need to adjust the potentiometer on the i2C backpack behind the screen to improve the contrast.
 
-![alt text](_data/hd44780-i2c-display_Steckplatine-600x365.png)
+![alt text](_data/lcd_i2c_screen_01-1024x683.jpg)
 
 ### Run your code on boot
 1. Follow the instructions here https://www.dexterindustries.com/howto/auto-run-python-programs-on-the-raspberry-pi/ EXCEPT that you should do `sudo cron -e` instead of `cron -e` so that your code can be executed on boot without requiring root permissions.
