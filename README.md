@@ -12,7 +12,7 @@ Documentation for setting up LCD display 1602 (controller HD44780) with Raspberr
 NEW NOTE: It is found that the screen only supports the following character set (read them in binary, e.g. 0 is 00110000 which is 48). Numbers and English letters are fine, but for some other characters, their ASCII code is not consistent with the following set. E.g. if you put backlash `\\\\` in your message, for which the ASCII code is 92, i.e. 01011100 in binary, it actually corresponds to `¥`, the yen/yuan symbol. It turns out that backlash `\\\\` is not supported. If you want to use a closely related symbol, e.g. the one at 10100100, which is 164 in decimal, you want to type the python code `chr(164)` to have the character.
 
 HD44780 character set (the convention the LCD screen uses):
-![alt text](_data/hd44780-i2c-display_Steckplatine-600x365.png)
+![alt text](_data/LCDs_12_CharSet_01.jpg)
 
 Binary to decimal (and decimal to binary) converter:
 https://www.binaryhexconverter.com/binary-to-decimal-converter
